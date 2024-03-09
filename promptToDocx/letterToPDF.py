@@ -25,7 +25,7 @@ def createPdf(uuid,letter_text):
     # Build the PDF document
     doc.build(content)
 
-    return os.getcwd()+"/letters/"+str(uuid)+".pdf"
+    return str(uuid)
 
 
 

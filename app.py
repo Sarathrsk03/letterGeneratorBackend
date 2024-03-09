@@ -1,8 +1,9 @@
 from fastapi import FastAPI, Body
+from fastapi.responses import FileResponse
 from pydantic import BaseModel,Field
 from datetime import date
 from promptToDocx import letterGeneration,createPdf
-
+import os 
 
 app = FastAPI()
 class letterData(BaseModel):
@@ -22,17 +23,27 @@ class letterData(BaseModel):
     subject: str
     
 
-@app.post("/create/")
+@app.get("/create/")
 async def letterReceive(create:letterData):
+    
     data = dict(create)
     UUID = data["UUID"]
     del data["UUID"]
+    pr1 = f"{UUID} request received"
+    print(pr1)
     letterText = letterGeneration(data)
+    pr2 = f"{UUID} response generate"
+    print(pr2)
     PDFFileName = createPdf(UUID,letterText)
-    return PDFFileName
+    pr3 = f"{UUID} pdf generated"
+    print(pr3)
+    return FileResponse(os.getcwd()+"/letters/"+str(UUID)+".pdf", media_type="application/pdf")
+
+    
 
 
 
+   
     
 
 
