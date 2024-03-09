@@ -1,3 +1,3 @@
-from letterGeneration import * 
-from letterToPDF import * 
+from promptToDocx.letterGenerationGemini import * 
+from promptToDocx.letterToPDF import * 
 

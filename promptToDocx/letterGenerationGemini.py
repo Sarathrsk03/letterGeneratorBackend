@@ -4,10 +4,9 @@ import os
 
 load_dotenv()
 genai.configure(api_key= os.getenv("GEMINI_API"))
-fr = open("test.txt","w")
-fr1 = open("prompt.txt","r")
 
-def letterGeneration(preStructuredPromptFile:str,userData:dict):
+
+def letterGeneration(data:dict):
 
     
 
@@ -45,23 +44,16 @@ def letterGeneration(preStructuredPromptFile:str,userData:dict):
     convo = model.start_chat(history=[
     ])
 
-    
+    typeOfLetter = data.get("subject")
+    preStructuredPromptFile = (open(os.getcwd()+"/promptToDocx/preStructuredPrompts/"+typeOfLetter+".txt","r")).read()
 
-    prompt = preStructuredPromptFile + str(userData) +"Verify if you have followed all the rules mentioned before generating the response "
-
+    prompt = preStructuredPromptFile + str(data) +"Verify if you have followed all the rules mentioned before generating the response."
+    #print(prompt)
 
 
     convo.send_message(prompt)
-    fr.write(convo.last.text)
-    print(convo.last.text)
+    return convo.last.text
 
-
-userData = {"date":"2024-02-24","keywords":["FrontEnd developer","CTC:15 lakhs"],"receivercity":"Chennai","receivercountry":"India","receiverstates":"Tamilnadu","recipientAddress": "Number 18,Liberty Apartments,door number 22, Second Floor Sekar Road","recipientName": "SARATH",
-"senderAddress": "18/24 Mayflower Apartments , A4, Third Floor \nNageshwara Road\nNungambakkam","senderName": "Veer", "sendercity": "chennai", "sendercountry": "India","senderstat": "tamilnadu","subject": "Job Offer","type1": "MR"}
-
-
-str1 = fr1.read()
-letterGeneration(str1,userData)
 
 
 
