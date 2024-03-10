@@ -1,20 +1,12 @@
-from fastapi import FastAPI, Body
+from fastapi import FastAPI,Request
 from fastapi.responses import FileResponse
-from pydantic import BaseModel,Field
+from pydantic import BaseModel
 from datetime import date
 from promptToDocx import letterGeneration,createPdf
 import os 
-from fastapi.middleware.cors import CORSMiddleware
-
+from fastapi.staticfiles import StaticFiles
 app = FastAPI()
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 class letterData(BaseModel):
     UUID:int
@@ -33,8 +25,10 @@ class letterData(BaseModel):
     subject: str
     
 
+app.mount("/letters", StaticFiles(directory="letters", html=True))
+
 @app.post("/create/")
-async def letterReceive(create:letterData):
+async def letterReceive(create:letterData,request:Request):
     
     data = dict(create)
     UUID = data["UUID"]
@@ -47,12 +41,10 @@ async def letterReceive(create:letterData):
     PDFFileName = createPdf(UUID,letterText)
     pr3 = f"{UUID} pdf generated"
     print(pr3)
-    return "Successful"
+    domain = request.base_url
+    return str(domain) +"letters/"+str(UUID)+".pdf"
 
     
-@app.get("/view/{UUID}")
-async def letterView(UUID):
-    return FileResponse(os.getcwd()+"/letters/"+str(UUID)+".pdf", media_type="application/pdf")
 
 
    
