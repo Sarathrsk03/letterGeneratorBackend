@@ -23,7 +23,7 @@ class letterData(BaseModel):
     subject: str
     
 
-@app.get("/create/")
+@app.post("/create/")
 async def letterReceive(create:letterData):
     
     data = dict(create)
@@ -37,10 +37,12 @@ async def letterReceive(create:letterData):
     PDFFileName = createPdf(UUID,letterText)
     pr3 = f"{UUID} pdf generated"
     print(pr3)
-    return FileResponse(os.getcwd()+"/letters/"+str(UUID)+".pdf", media_type="application/pdf")
+    return "Successful"
 
     
-
+@app.get("/view/{UUID}")
+async def letterView(UUID):
+    return FileResponse(os.getcwd()+"/letters/"+str(UUID)+".pdf", media_type="application/pdf")
 
 
    
