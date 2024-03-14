@@ -1,3 +1,5 @@
+
+
 from fastapi import FastAPI,Request
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
@@ -8,16 +10,17 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 
+origins = ['http://localhost:3000']
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http:localhost:3000"],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
 class letterData(BaseModel):
-    UUID:int
+    uuid:str
     date: date
     keywords:list
     receivercity:str
@@ -35,12 +38,12 @@ class letterData(BaseModel):
 
 app.mount("/letters", StaticFiles(directory="letters", html=True))
 
-@app.post("/create/")
+@app.post("/create")
 async def letterReceive(create:letterData,request:Request):
     
     data = dict(create)
-    UUID = data["UUID"]
-    del data["UUID"]
+    UUID = data["uuid"]
+    del data["uuid"]
     pr1 = f"{UUID} request received"
     print(pr1)
     letterText = letterGeneration(data)
@@ -50,12 +53,5 @@ async def letterReceive(create:letterData,request:Request):
     pr3 = f"{UUID} pdf generated"
     print(pr3)
     domain = request.base_url
-    return str(domain) +"letters/"+str(UUID)+".pdf"
 
-    
-
-
-   
-    
-
-
+    #return str(domain) +"letters/"+str(UUID)+".pdf"
