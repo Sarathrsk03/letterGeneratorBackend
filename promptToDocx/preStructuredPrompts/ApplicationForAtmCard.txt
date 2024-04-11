@@ -44,3 +44,13 @@ Rules:
 1. Use only given data don't add any other data
 2. Create a letter that is structurally similar to the example letter
 3. Also follow the format
+
+
+
+def removeSpace(data):
+    str2 = ""
+    for i in data:
+        if i==" ":
+            pass
+        else:
+            str2+= i

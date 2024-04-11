@@ -44,8 +44,14 @@ def letterGeneration(data:dict):
     convo = model.start_chat(history=[
     ])
 
+    fileNames = {"ApplicationForATMCard":"/promptToDocx/preStructuredPrompts/ApplicationForAtmCard.txt",
+                "ApplicationForMedicalLeaveToHOD":"/promptToDocx/preStructuredPrompts/ApplicationForMedicalLeaveToHOD.txt",
+                "jobOffer":"/promptToDocx/preStructuredPrompts/jobOffer.txt",
+                "ApplicationForReCAT/ReFAT":"/promptToDocx/preStructuredPrompts/recat_refat.txt"}
+    
     typeOfLetter = data.get("subject")
-    preStructuredPromptFile = (open(os.getcwd()+"/promptToDocx/preStructuredPrompts/"+typeOfLetter+".txt","r")).read()
+    fileLocation=os.getcwd()+fileNames[typeOfLetter]
+    preStructuredPromptFile = (open(fileLocation,"r")).read()
 
     prompt = preStructuredPromptFile + str(data) +"Verify if you have followed all the rules mentioned before generating the response."
     #print(prompt)

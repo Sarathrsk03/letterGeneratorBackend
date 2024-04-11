@@ -1,0 +1,46 @@
+Sarath
+11G, Heavens apartment, OMR
+Chennai, 600031
+Date: 12-04-2024
+
+Examination Controller
+VIT CHENNAI
+Kelambakkam
+Chennai, Tamil Nadu
+600017
+
+Subject: Request for Re-examination
+
+Respected Sir,
+
+I hope this letter finds you well. I am writing to request a re-examination for the <subject> <exam> exam that was conducted on <date>. Unfortunately, I was unable to attend it due to my medical issues.
+
+I understand the importance of the exam and acknowledge my responsibility for the outcome. I have thoroughly reviewed my mistakes and have taken necessary steps to improve my understanding of the subject matter.
+
+I kindly request you to consider my request for a re-examination to demonstrate my true capabilities. I assure you that I will prepare diligently and perform to the best of my abilities.
+
+Thank you for considering my request. I look forward to your positive response.
+
+Sincerely,
+Sarath
+
+format: 
+    sender's name 
+    sender's address 
+
+    date 
+
+    receiver name 
+    receiver address 
+
+    subject 
+
+    body of the letter 
+
+    salutation 
+    sender name
+
+Rules:
+1. Use only given data don't add any other data
+2. Create a letter that is structurally similar to the example letter
+3. Also follow the format
