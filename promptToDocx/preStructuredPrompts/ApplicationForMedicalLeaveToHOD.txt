@@ -1,0 +1,44 @@
+Sarath [Sender]
+11G, Heavens apartment, OMR
+Chennai, 600031
+Date: 12-04-2024
+
+Head of Department [Receiver]
+CSE
+VIT CHENNAI
+Kelambakkam 
+Chennai, 600017
+
+Subject: Application for Medical Leave
+
+Respected Sir,
+
+I am writing to request a medical leave of absence starting from [Start Date] due to [mention your condition or the medical reason]. The recovery period as advised by the medical practitioner is [duration of leave]. Hence, I anticipate resuming my duties on [Expected Return Date].
+
+I have attached the medical certificate and the doctor’s leave note with this application. I am also ready to fill out the official Medical Leave Application Form and provide any other necessary documentation required.
+
+Sincerely,
+Sarath
+
+
+format: 
+    sender's name 
+    sender's address 
+
+    date 
+
+    receiver name 
+    receiver address 
+
+    subject 
+
+    body of the letter 
+
+    salutation 
+    sender name
+
+Rules:
+1.⁠ ⁠Use only given data don't add any other data
+2.⁠ ⁠Create a letter that is structurally similar to the example letter
+3.⁠ ⁠Also follow the format
+4. Info given in [] are to be used for creating the letter only

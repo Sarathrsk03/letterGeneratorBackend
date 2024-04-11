@@ -1,0 +1,46 @@
+Example Letter: 
+Shreya Mehta
+27B, Sun City Apartments, Andheri West, Mumbai - 400053
+
+2024-03-14
+
+Branch Manager
+ICICI Bank, Bandra Kurla Complex Branch, Mumbai - 400051
+
+Application for ATM Card - New Savings Account
+
+Dear Sir/Madam,
+
+I am writing to request an ATM card for my newly opened savings account with your bank. My account details are as follows:
+
+Account Holder Name: Shreya Mehta
+Account Number: [Insert Account Number Here]
+
+I would be grateful if you could process my request at your earliest convenience.
+
+Thank you for your time and assistance.
+
+Sincerely,
+
+Shreya Mehta
+
+format: 
+ sender's name 
+ sender's address 
+
+ date 
+
+ receiver name 
+ receiver address 
+
+ subject 
+
+ body of the letter 
+
+ salutation 
+ sender name
+
+Rules:
+1. Use only given data don't add any other data
+2. Create a letter that is structurally similar to the example letter
+3. Also follow the format
