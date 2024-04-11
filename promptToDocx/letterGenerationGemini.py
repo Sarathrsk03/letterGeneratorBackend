@@ -44,12 +44,15 @@ def letterGeneration(data:dict):
     convo = model.start_chat(history=[
     ])
 
-    fileNames = {"ApplicationForATMCard":"/promptToDocx/preStructuredPrompts/ApplicationForAtmCard.txt",
-                "ApplicationForMedicalLeaveToHOD":"/promptToDocx/preStructuredPrompts/ApplicationForMedicalLeaveToHOD.txt",
+    fileNames = {"ApplicationForATMCard":"/promptToDocx/preStructuredPrompts/atmCard.txt",
+                "medicalLeave":"/promptToDocx/preStructuredPrompts/ApplicationForMedicalLeaveToHOD.txt",
                 "jobOffer":"/promptToDocx/preStructuredPrompts/jobOffer.txt",
-                "ApplicationForReCAT/ReFAT":"/promptToDocx/preStructuredPrompts/recat_refat.txt"}
+                "ApplicationForReCAT-ReFAT":"/promptToDocx/preStructuredPrompts/recat_refat.txt"}
     
     typeOfLetter = data.get("subject")
+    if "\u2060" in typeOfLetter:
+        typeOfLetter = typeOfLetter[1:] 
+    
     fileLocation=os.getcwd()+fileNames[typeOfLetter]
     preStructuredPromptFile = (open(fileLocation,"r")).read()
 
