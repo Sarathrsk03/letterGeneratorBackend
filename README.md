@@ -1,1 +1,1 @@
-A python based backend created using fast API to handle requests for Gemini 
+A Python based backend created using Gemini to create letters in PDF form based on the user requirements. 
